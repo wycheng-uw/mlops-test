@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          auto-activate-base: false
+          activate-environment: mlops
+          environment-file: environment.yml
+
+      - name: Convert notebook to script
+        shell: bash -l {0}
+        run: |
+          jupyter-nbconvert --to script example.ipynb
+          python example.py
+
+      - name: Upload figure
+        uses: actions/upload-artifact@v2
+        with:
+          name: plot
+          path: roc.pdf

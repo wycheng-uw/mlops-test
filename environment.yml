@@ -1,0 +1,14 @@
+name: mlops
+channels:
+  - conda-forge
+dependencies:
+  - cartopy
+  - python>3.6
+  - jupyterlab=2
+  - matplotlib-base
+  - netcdf4
+  - numpy
+  - pandas
+  - scikit-learn
+  - scipy
+  - xarray
