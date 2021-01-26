@@ -35,4 +35,4 @@ jobs:
         uses: mshick/add-pr-comment@v1
         with:
           message: 'test text'
-
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
