@@ -30,3 +30,9 @@ jobs:
         with:
           name: plot
           path: roc.pdf
+
+      - name: Add PR Comment
+        uses: mshick/add-pr-comment@v1
+        with:
+          message: 'test text'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
